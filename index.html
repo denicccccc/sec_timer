@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Домашнє завдання</title>
+</head>
+<body>
+
+<h2>Завдання 1</h2>
+<script>
+  let i = 0;
+  let id = setInterval(() => {
+    i++;
+    console.log("Повідомлення " + i);
+
+    if (i === 5) {
+      clearInterval(id);
+    }
+  }, 1000);
+</script>
+
+<hr>
+
+<h2>Завдання 2</h2>
+<div id="box" style="width:50px;height:50px;background:red;position:relative;"></div>
+<script>
+  let pos = 0;
+  let move = setInterval(() => {
+    pos += 5;
+    document.getElementById("box").style.left = pos + "px";
+
+    if (pos >= 200) {
+      clearInterval(move);
+    }
+  }, 100);
+</script>
+
+<hr>
+
+<h2>Завдання 3 </h2>
+<button id="btn">Натисни мене!</button>
+<p>Очки: <span id="s">0</span></p>
+
+<script>
+  let score = 0;
+  let time = 3; // 3 секунди
+  const button = document.getElementById("btn");
+  const s = document.getElementById("s");
+
+  button.onclick = () => {
+    score++;
+    s.textContent = score;
+  };
+
+  let game = setInterval(() => {
+    time--;
+
+    if (time === 0) {
+      clearInterval(game);
+      button.disabled = true;
+      alert("Гра закінчена! Очки: " + score);
+    }
+  }, 1000);
+</script>
+
+<hr>
+
+<h2>Завдання 4</h2>
+<input id="t" type="number" placeholder="Секунди">
+<button onclick="start()">Старт</button>
+
+<script>
+  function start() {
+    let sec = document.getElementById("t").value;
+
+    setTimeout(() => {
+      alert("Час минув!");
+    }, sec * 1000);
+  }
+</script>
+
+</body>
+</html>
