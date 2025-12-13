@@ -1,63 +1,74 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <title>Домашнє завдання</title>
+  <meta charset="UTF-8">
+  <title>Тема 10 </title>
 </head>
 <body>
 
-<h2>Завдання 1</h2>
-<script>
-  let i = 0;
-  let id = setInterval(() => {
-    i++;
-    console.log("Повідомлення " + i);
+<h1>Домашнє завдання</h1>
 
-    if (i === 5) {
-      clearInterval(id);
+<hr>
+
+<h2>Завдання 1</h2>
+
+<script>
+  let count = 0;
+
+  const interval = setInterval(() => {
+    count++;
+    console.log("Повідомлення " + count);
+
+    if (count === 5) {
+      clearInterval(interval);
     }
   }, 1000);
 </script>
 
 <hr>
 
-<h2>Завдання 2</h2>
-<div id="box" style="width:50px;height:50px;background:red;position:relative;"></div>
+
+<h2>Завдання 2 </h2>
+
+<div id="box"
+     style="width:50px;height:50px;background:red;position:relative;">
+</div>
+
 <script>
   let pos = 0;
-  let move = setInterval(() => {
-    pos += 5;
-    document.getElementById("box").style.left = pos + "px";
+  const box = document.getElementById("box");
 
-    if (pos >= 200) {
-      clearInterval(move);
-    }
+  setInterval(() => {
+    pos += 5;
+    box.style.left = pos + "px";
   }, 100);
 </script>
 
 <hr>
 
 <h2>Завдання 3 </h2>
+
 <button id="btn">Натисни мене!</button>
-<p>Очки: <span id="s">0</span></p>
+<p>Очки: <span id="score">0</span></p>
 
 <script>
   let score = 0;
-  let time = 3; // 3 секунди
-  const button = document.getElementById("btn");
-  const s = document.getElementById("s");
+  let time = 5; // секунд
 
-  button.onclick = () => {
+  const btn = document.getElementById("btn");
+  const scoreText = document.getElementById("score");
+
+  btn.onclick = () => {
     score++;
-    s.textContent = score;
+    scoreText.textContent = score;
   };
 
-  let game = setInterval(() => {
+  const game = setInterval(() => {
     time--;
 
     if (time === 0) {
       clearInterval(game);
-      button.disabled = true;
+      btn.disabled = true;
       alert("Гра закінчена! Очки: " + score);
     }
   }, 1000);
@@ -65,13 +76,14 @@
 
 <hr>
 
-<h2>Завдання 4</h2>
+<h2>Завдання 4 </h2>
+
 <input id="t" type="number" placeholder="Секунди">
 <button onclick="start()">Старт</button>
 
 <script>
   function start() {
-    let sec = document.getElementById("t").value;
+    const sec = document.getElementById("t").value;
 
     setTimeout(() => {
       alert("Час минув!");
